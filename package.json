@@ -1,0 +1,29 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot, sort of",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gorane7/Chatbot.git"
+  },
+  "author": "Kristjan Kõiv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gorane7/Chatbot/issues"
+  },
+  "homepage": "https://github.com/Gorane7/Chatbot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
