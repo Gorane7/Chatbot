@@ -11,16 +11,16 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-	const posts = await loadLanguagesCollection();
-	await posts.insertOne({
+	const languages = await loadLanguagesCollection();
+	await languages.insertOne({
 		name: req.body.text
 	});
 	res.status(201).send();
 });
 
 router.delete('/:id', async (req, res) => {
-	const posts = await loadLanguagesCollection();
-	await posts.deleteOne({_id: new mongodb.ObjectID(req.params.id)});
+	const languages = await loadLanguagesCollection();
+	await languages.deleteOne({_id: new mongodb.ObjectID(req.params.id)});
 	res.status(200).send();
 });
 

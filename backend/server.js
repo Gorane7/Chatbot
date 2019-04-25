@@ -7,8 +7,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-const posts = require('./routes/api/posts');
-app.use('/api/posts', posts);
+const languages = require('./routes/api/languages');
+app.use('/api/languages', languages);
 
 const port = process.env.PORT || 5000;
 
