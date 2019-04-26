@@ -12,9 +12,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
 	const languages = await loadLanguagesCollection();
-	await languages.insertOne({
-		name: req.body.text
-	});
+	await languages.updateOne(
+		{name: req.body.text},
+		{$inc: {votes: 1}},
+		{upsert: true}
+	);
 	res.status(201).send();
 });
 

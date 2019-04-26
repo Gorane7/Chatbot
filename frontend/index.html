@@ -5,15 +5,17 @@
 		<meta name="viewport" content="width=device-width">
 		<title>My page</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="LanguageService.js"></script>
 	</head>
 
 	<body>
 		<div id="app">
+			<p>{{error}}</p>
 			<ul>
-				<li v-for="f in frameworks">
-					{{f.name}} has {{f.votes}} votes.
-					<button v-on:click="voteFor(f)">Vote</button>
-					<a href="#" v-if="editMode" v-on:click="remove(f)">Delete</a>
+				<li v-for="lang in languages">
+					{{lang.name}} has {{lang.votes}} votes.
+					<button v-on:click="voteFor(lang)">Vote</button>
+					<a href="#" v-if="editMode" v-on:click="remove(lang)">Delete</a>
 				</li>
 			</ul>
 			<button v-on:click="toggleEditMode">{{ editMode ? 'Done' : 'Edit' }}</button>

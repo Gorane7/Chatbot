@@ -1,8 +1,11 @@
+
 let app = new Vue({
+	
 	el: '#app',
 	data: {
 		editMode: false,
-		frameworks: [
+		error: 'No error',
+		languages: [
 			{ name: 'Vue.js', votes: 0},
 			{ name: 'React', votes: 0},
 			{ name: 'Angular', votes: 0 }
@@ -11,11 +14,11 @@ let app = new Vue({
 	methods: {
 		voteFor: function(f) {
 			f.votes += 1
-			this.frameworks.sort(function(a,b){return b.votes - a.votes})
+			this.languages.sort(function(a,b){return b.votes - a.votes})
 			this.save()
 		},
 		addNew: function(event) {
-			this.frameworks.push({
+			this.languages.push({
 				name: event.target.value,
 				votes: 0
 			})
@@ -23,17 +26,17 @@ let app = new Vue({
 			this.save()
 		},
 		remove: function(f) {
-			this.frameworks = this.frameworks.filter(i => i != f)
+			this.languages = this.languages.filter(i => i != f)
 			this.save()
 		},
 		load: function() {
 			let data = localStorage.getItem('saved')
 			if (data) {
-				this.frameworks = JSON.parse(data)
+				this.languages = JSON.parse(data)
 			}
 		},
 		save: function() {
-			let data = JSON.stringify(this.frameworks)
+			let data = JSON.stringify(this.languages)
 			localStorage.setItem('saved', data)
 		},
 		toggleEditMode: function() {
@@ -44,4 +47,4 @@ let app = new Vue({
 		this.load()
 	}
 	
-})
+});
