@@ -10,7 +10,7 @@ app.use(cors());
 const languages = require('./routes/api/languages');
 app.use('/api/languages', languages);
 
-if(process.end.NODE_ENV === 'production') {
+if(process.env.NODE_ENV === 'production') {
 	app.use(express.static(__dirname + './frontend/public/'));
 	
 	app.get(/.*/, (req, res) => res.sendFile(__dirname + './frontend/public/index.html'));
