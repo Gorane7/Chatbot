@@ -11,9 +11,9 @@ const languages = require('./routes/api/languages');
 app.use('/api/languages', languages);
 
 if(process.end.NODE_ENV === 'production') {
-	app.use(express.static(__dirname + '/public/'));
+	app.use(express.static(__dirname + './frontend/public/'));
 	
-	app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+	app.get(/.*/, (req, res) => res.sendFile(__dirname + './frontend/public/index.html'));
 }
 
 const port = process.env.PORT || 5000;
